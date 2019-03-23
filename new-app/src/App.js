@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MakeAppointment from './appointment/MakeAppoint.js'
 
 class App extends Component {
+  state={
+      makeAppointmentshow:false
+  }
+
+  makeAppointment=()=>{
+    this.setState({makeAppointmentshow:!this.state.makeAppointmentshow})
+}
+addAppoitment=(e)=>{
+  e.preventDefault()
+  
+}
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          Welcome to our project
         </header>
+        <div>
+          <button>Doctor Profilo</button>
+          <button onClick={this.makeAppointment.bind(this)}>Make appointment</button>
+          <button>Check appointment</button>
+          <button>Account</button>
+        </div>
+       <div>
+         <MakeAppointment toshow={this.state.makeAppointmentshow}/>
+       </div>
       </div>
     );
   }
 }
 
 export default App;
+
